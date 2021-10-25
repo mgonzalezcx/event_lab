@@ -66,9 +66,10 @@ resource "aws_default_security_group" "dsg" {
 
 resource "aws_lb_listener" "listener" {
   load_balancer_arn = aws_lb.test.arn
-  port = 443
+  port = 80
   default_action {
     type             = "forward"
+    redirect_protocol = "HTTPS"
     target_group_arn = aws_lb_target_group.test.arn
   }
 }
