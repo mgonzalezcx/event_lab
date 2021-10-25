@@ -69,7 +69,7 @@ resource "aws_lb_listener" "listener" {
   port = 80
   default_action {
     type             = "forward"
-    redirect_protocol = "HTTPS"
+    redirect.protocol = "HTTPS"
     target_group_arn = aws_lb_target_group.test.arn
   }
 }
